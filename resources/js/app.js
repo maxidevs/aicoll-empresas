@@ -1,23 +1,33 @@
 import "./bootstrap";
 
-let table = new DataTable("#companyTable", {
-  scrollY: "600px",
-  rowId: "id",
-  scrollX: true,
-  responsive: true,
-  order: [[6, "asc"]],
-  ajax: {
-    url: "/companies/all",
-    dataSrc: "data",
-  },
-  columns: [
-    {
-      data: "id",
-      name: "id",
-      sortable: false,
-      orderable: false,
-      render: function (data, type, row) {
-        return `
+window.addEventListener("DOMContentLoaded", function () {
+  listCompanies();
+  editCompany();
+});
+
+function listCompanies() {
+  const table = document.getElementById("companyTable");
+  if (!table) {
+    return;
+  }
+  let dtTable = new DataTable("#companyTable", {
+    scrollY: "600px",
+    rowId: "id",
+    scrollX: true,
+    responsive: true,
+    order: [[6, "asc"]],
+    ajax: {
+      url: "/companies/all",
+      dataSrc: "data",
+    },
+    columns: [
+      {
+        data: "id",
+        name: "id",
+        sortable: false,
+        orderable: false,
+        render: function (data, type, row) {
+          return `
           <div class="btn-group" role="group" aria-label="Group actions button">
             <a class="btn btn-secondary btn-sm d-flex items-center justify-center" href="/companies/${data}">
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="size-4">
@@ -38,36 +48,84 @@ let table = new DataTable("#companyTable", {
             </a>
           </div>
         `;
+        },
       },
-    },
-    { data: "nit" },
-    { data: "name" },
-    { data: "address" },
-    { data: "phone",
-      render: function (data, type, row) {
-        return `<span class="whitespace-nowrap">${data}</span>`;
+      { data: "nit" },
+      { data: "name" },
+      { data: "address" },
+      {
+        data: "phone",
+        render: function (data, type, row) {
+          return `<span class="whitespace-nowrap">${data}</span>`;
+        },
+      },
+      {
+        data: "active",
+        render: function (data, type, row) {
+          const isActive = data ? "Yes" : "No";
+          const classes = data ? "badge badge-success" : "badge badge-danger";
+          return `<span class="${classes}">${isActive}</span>`;
+        },
+      },
+      {
+        data: "created_at",
+        render: function (data, type, row) {
+          const date = new Date(data);
+          return `<span class="whitespace-nowrap">${date.toLocaleString()}</span>`;
+        },
+      },
+      {
+        data: "updated_at",
+        render: function (data, type, row) {
+          const date = new Date(data);
+          return `<span class="whitespace-nowrap">${date.toLocaleString()}</span>`;
+        },
+      },
+    ],
+  });
+}
+
+async function editCompany() {
+  const form = document.getElementById("form-edit");
+  if (!form) {
+    return;
+  }
+  let notyf = new Notyf();
+  const fetching = (form) => {
+    const formData = new FormData(form);
+    return fetch(form.action, {
+      headers: {
+        Accept: "application/json",
+      },
+      method: form.method,
+      body: formData,
+    })
+      .then(function (response) {
+        return response.json();
+      })
+      .then(function (data) {
+        return data;
+      })
+      .catch(function (error) {
+        console.error(error);
+        notyf.error("Error al guardar la empresa");
+      });
+  };
+  form.addEventListener("submit", async function (event) {
+    event.preventDefault();
+    try {
+      const response = await fetching(form);
+      const hasErrors = response.hasOwnProperty("errors");
+      if (hasErrors) {
+        notyf.error(response.message);
+        return;
       }
-     },
-    { data: "active",
-      render: function (data, type, row) {
-        const isActive = data ? 'Yes' : 'No';
-        const classes = data ? 'badge badge-success' : 'badge badge-danger';
-        return `<span class="${classes}">${isActive}</span>`;
+      if (response.success) {
+        notyf.success(response.message);
+        window.location.href = "/companies/";
       }
-     },
-    {
-      data: "created_at",
-      render: function (data, type, row) {
-        const date = new Date(data);
-        return `<span class="whitespace-nowrap">${date.toLocaleString()}</span>`;
-      },
-    },
-    {
-      data: "updated_at",
-      render: function (data, type, row) {
-        const date = new Date(data);
-        return `<span class="whitespace-nowrap">${date.toLocaleString()}</span>`;
-      },
-    },
-  ],
-});
+    } catch (error) {
+      notyf.error(error);
+    }
+  });
+}

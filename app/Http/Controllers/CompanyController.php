@@ -46,7 +46,7 @@ class CompanyController extends Controller
    */
   public function show(Company $company)
   {
-    //
+    return view('companies.show', compact('company'));
   }
 
   /**
@@ -54,7 +54,7 @@ class CompanyController extends Controller
    */
   public function edit(Company $company)
   {
-    //
+    return view('companies.edit', compact('company'));
   }
 
   /**
@@ -62,7 +62,25 @@ class CompanyController extends Controller
    */
   public function update(Request $request, Company $company)
   {
-    //
+    $validateData = $request->validate([
+      'name' => 'required|string|max:255',
+      'address' => 'required|string|max:255',
+      'phone' => 'required|string|max:255',
+      'nit' => 'required|string|max:255',
+      'active' => 'required|boolean',
+    ]);
+    try {
+      $company->update($validateData);
+    } catch (\Throwable $th) {
+      return response()->json([
+        'success' => false,
+        'message' => $th->getMessage(),
+      ], 500);
+    }
+    return response()->json([
+      'success' => true,
+      'message' => 'Empresa actualizada correctamente',
+    ], 200);
   }
 
   /**
