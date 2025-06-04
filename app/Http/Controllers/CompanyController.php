@@ -30,7 +30,8 @@ class CompanyController extends Controller
    */
   public function create()
   {
-    //
+    $company = new Company();
+    return view('companies.create', compact('company'));
   }
 
   /**
@@ -38,7 +39,25 @@ class CompanyController extends Controller
    */
   public function store(Request $request)
   {
-    //
+    $validateData = $request->validate([
+      'name' => 'required|string|max:255',
+      'address' => 'required|string|max:255',
+      'phone' => 'required|string|max:255',
+      'nit' => 'required|string|max:255',
+    ]);
+    try {
+      $company = Company::create($validateData);
+    } catch (\Throwable $th) {
+      return response()->json([
+        'success' => false,
+        'message' => $th->getMessage(),
+      ], 500);
+    }
+    return response()->json([
+      'success' => true,
+      'message' => 'Empresa creada correctamente',
+      'data' => $company,
+    ], 200);
   }
 
   /**
@@ -66,7 +85,6 @@ class CompanyController extends Controller
       'name' => 'required|string|max:255',
       'address' => 'required|string|max:255',
       'phone' => 'required|string|max:255',
-      'nit' => 'required|string|max:255',
       'active' => 'required|boolean',
     ]);
     try {
@@ -88,6 +106,10 @@ class CompanyController extends Controller
    */
   public function destroy(Company $company)
   {
-    //
+    $company->delete();
+    return response()->json([
+      'success' => true,
+      'message' => 'Empresa eliminada correctamente',
+    ], 200);
   }
 }
