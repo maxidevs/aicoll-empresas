@@ -23,7 +23,6 @@
       <ul class="list-group list-group-flush mb-4">
         <li class="list-group-item"><strong>Dirección:</strong> {{ $company->address }}</li>
         <li class="list-group-item"><strong>Teléfono:</strong> {{ $company->phone }}</li>
-        <li class="list-group-item"><strong>NIT:</strong> {{ $company->nit }}</li>
         <li class="list-group-item">
           <strong>Estado:</strong>
           @if ($company->active)
@@ -33,7 +32,7 @@
           @endif
         </li>
       </ul>
-      <div class="d-inline-flex mb-5 gap-2">
+      <div class="d-inline-flex gap-2">
         <a href="{{ route('companies.edit', $company) }}" class="btn btn-primary rounded-pill px-4" type="button">
           Editar
         </a>
