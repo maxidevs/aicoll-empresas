@@ -6,6 +6,32 @@
 @source '../**/*.js';
 
 @theme {
-    --font-sans: 'Instrument Sans', ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji',
-        'Segoe UI Symbol', 'Noto Color Emoji';
+  --font-sans: 'Instrument Sans', ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji',
+    'Segoe UI Symbol', 'Noto Color Emoji';
+}
+
+nav#menuHorizontalAicoll {
+  @apply bg-[#86b7fe];
+
+  .aicoll-menu-horizontal__logo--container {
+    padding: 0;
+    background: transparent;
+  }
+
+  .link-home {
+    background: transparent;
+  }
+}
+
+p {
+  margin-bottom: 0
+}
+
+footer {
+  @apply bg-[#86b7fe];
+
+  padding: .5rem 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }

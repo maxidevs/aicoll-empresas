@@ -29,24 +29,36 @@
     </div>
     <!-- // menu-desktop -->
     <ul>
-      <li class="logo-item ">
+      <li class="logo-item">
         <a href="index.php" rel="dofollow" class="aicoll-menu-horizontal__logo--container">
           <img loading="lazy" id="aicollLogoDesktop" width="250px" height="75px"
             src="https://www.aicoll.co/landingpage/assets/img/logo_main.png" title="Aicoll" alt="Aicoll Logo" />
         </a>
       </li>
     </ul>
-
-    <ul>
-      <li>
-        <a href="empresas/empresa-login.php" class="link link-companies" rel="dofollow">
-          <img data-aos="zoom-in" data-aos-duration="1000" loading="lazy" class="aicoll-menu-horizontal__module-img"
-            id="aicollModuloEmpresa" src="https://www.aicoll.co/landingpage/assets/img/empresa.png" width="47"
-            height="41" alt="Módulo Empresa" />
-          Empresas
-        </a>
-      </li>
-    </ul>
+    @if (Route::is('welcome'))
+      <ul>
+        <li>
+          <a href="{{ route('companies.index') }}" class="link link-companies" rel="dofollow">
+            <img data-aos="zoom-in" data-aos-duration="1000" loading="lazy" class="aicoll-menu-horizontal__module-img"
+              id="aicollModuloEmpresa" src="https://www.aicoll.co/landingpage/assets/img/empresa.png" width="47"
+              height="41" alt="Módulo Empresa" />
+            Empresas
+          </a>
+        </li>
+      </ul>
+    @else
+      <ul>
+        <li>
+          <a href="{{ route('welcome') }}" class="link link-home !flex items-center justify-center flex-col" rel="dofollow">
+            <img data-aos="zoom-in" data-aos-duration="1000" loading="lazy" class="!opacity-100 !transform-none"
+              id="aicollModuloEmpresa" src="https://www.aicoll.co/landingpage/assets/img/empresa.png" width="60"
+              height="60" alt="Módulo Empresa" />
+            <span>Home</span>
+          </a>
+        </li>
+      </ul>
+    @endif
   </nav>
   <div class="aicoll-menu-horizontal__margin--bottom">
   </div>
