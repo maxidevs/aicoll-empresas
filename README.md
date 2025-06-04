@@ -80,6 +80,21 @@ Este proyecto es una aplicación web desarrollada en Laravel, que implementa un 
 - `database/seeders/CompaniesSeeder.php`: Seeder de empresas
 - `public/landingpage/`: Recursos de la landing page original
 
+## Tests
+
+El proyecto incluye tests sencillos de tipo Feature para el CRUD de empresas, usando PHPUnit. Puedes ejecutarlos con:
+
+```bash
+php artisan test
+```
+
+Los tests cubren:
+- Creación de empresa
+- Validación de NIT duplicado
+- Actualización de empresa
+- Eliminación de empresa inactiva
+- Prevencion de eliminación de empresa activa
+
 ## Créditos
 
 Desarrollado por Max Jimenez para el proceso de selección de Aicoll Development Department.
