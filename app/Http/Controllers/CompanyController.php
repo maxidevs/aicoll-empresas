@@ -7,12 +7,21 @@ use Illuminate\Http\Request;
 
 class CompanyController extends Controller
 {
+  public function all()
+  {
+    $companies = Company::orderBy('id', 'desc')->get();
+    return response()->json([
+      'data' => $companies,
+      'draw' => 1,
+      'recordsTotal' => count($companies),
+      'recordsFiltered' => count($companies),
+    ]);
+  }
   /**
    * Display a listing of the resource.
    */
   public function index()
   {
-    $companies = Company::all();
     return view('companies.index');
   }
 
