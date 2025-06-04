@@ -115,6 +115,13 @@ class CompanyController extends Controller
    */
   public function destroy(Company $company)
   {
+    $isActive = $company->active;
+    if($isActive) {
+      return response()->json([
+        'success' => false,
+        'message' => 'La empresa no puede ser eliminada porque está activa',
+      ], 409);
+    }
     $company->delete();
     return response()->json([
       'success' => true,
