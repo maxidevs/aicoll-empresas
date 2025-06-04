@@ -18,7 +18,6 @@
     white-space: nowrap !important;
     word-wrap: normal !important;
     direction: ltr !important;
-    -webkit-font-feature-settings: 'liga' !important;
     -webkit-font-smoothing: antialiased !important;
 }
 /* //------------------------- END FONTS -------------------------------// */
