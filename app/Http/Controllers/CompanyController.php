@@ -45,6 +45,15 @@ class CompanyController extends Controller
       'phone' => 'required|string|max:255',
       'nit' => 'required|string|max:255',
     ]);
+    $currentNit =  $validateData['nit'];
+    //Check if exist a company with the same NIT
+    $company = Company::where('nit', $currentNit)->first();
+    if ($company) {
+      return response()->json([
+        'success' => false,
+        'message' => 'Ya existe una empresa con el NIT ingresado',
+      ], 409);
+    }
     try {
       $company = Company::create($validateData);
     } catch (\Throwable $th) {
