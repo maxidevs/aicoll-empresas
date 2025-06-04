@@ -6,6 +6,152 @@
 @source '../**/*.js';
 
 @theme {
-    --font-sans: 'Instrument Sans', ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji',
-        'Segoe UI Symbol', 'Noto Color Emoji';
+  --font-sans: 'Instrument Sans', ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji',
+    'Segoe UI Symbol', 'Noto Color Emoji';
 }
+
+nav#menuHorizontalAicoll ul li>a.link-companies {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.hero-section .landing__home__heading__container {
+  height: max(40vh, 500px);
+}
+
+.hero-section .landing__home__heading__panel--left {
+  flex: 1 0 35%;
+  padding-inline: 2rem;
+}
+
+.hero-section .aicoll-feactured-with-gsap__top-der-total-container {
+  flex: 1 0 auto;
+}
+
+.hero-section #imgFeaturedWithGSAPDesktop.aicoll-feactured-with-gsap__top-der-container {
+  display: flex;
+  visibility: visible;
+  width: 100%;
+  max-width: initial;
+  padding-inline: 2rem;
+}
+
+.hero-section #imgFeaturedWithGSAPDesktop.aicoll-feactured-with-gsap__top-der-container img.aicollDown {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 16 / 9;
+  object-fit: contain;
+  margin-left: initial !important;
+}
+
+.landing__btn__success {
+  font-size: 1.25rem !important;
+  padding: 10px 20px;
+}
+
+.landing__counter__item--number .plus-icon {
+  color: #a00065 !important;
+}
+
+.landing__subtitle {
+  font-size: 2.25rem;
+}
+
+.landing__btn__blue {
+  font-size: 1.25rem !important;
+  padding: 10px 20px;
+}
+
+section#aicollFeaturedWithGSAP.how-section {
+  margin-bottom: 0;
+  padding-bottom: 0;
+
+}
+
+.landing__client__container__white .logos__scroll img {
+  height: 90px;
+  width: 150px;
+  object-fit: contain;
+}
+
+section#aicollFeaturedWithGSAP.how-section .landing__ally__container {
+  margin-top: 0;
+}
+
+section#aicollFeaturedWithGSAP.clients-section {
+  padding-inline: 0;
+  margin-bottom: 0;
+}
+
+section#aicollFeaturedWithGSAP.clients-section .landing__client__container {
+  position: static;
+  margin-block: 0;
+}
+
+/* Estoy creando arboles porque los navegadores (modernos) lo soportan, pero lo ideal es escribir un sass y tener un bundler o una utilidad para compilarlo a css normal */
+/* Yo lo seguire haciedno asi por practicidad y agilidad */
+section.how-section .landing__ally__company__container {
+  .landing__ally__company__item {
+    justify-content: flex-start;
+    align-items: center;
+
+    img {
+      width: 100%;
+      max-width: 100px;
+      aspect-ratio: 1/1;
+      object-fit: contain;
+      object-position: top;
+    }
+
+    .font-poppins {
+      font-size: 1.15rem !important;
+      line-height: 1.15;
+    }
+  }
+}
+
+.landing__container__information.purple-contact {
+  padding: 24px 30px;
+  display: flex;
+  flex-direction: column;
+  gap: .5rem;
+  .landing__container__information__subtitle{
+    font-size: 1rem;
+    margin-top: 0;
+    margin-bottom: .5rem;
+  }
+  .landing__home__container__button{
+    .btn {
+      margin: 0 !important;
+      margin-inline: auto !important;
+    }
+  }
+}
+.landing__container__contact.form_contact{
+  display: flex;
+  padding-inline: 1rem;
+  max-width: 1200px;
+  margin: auto;
+  width: 100%;
+  gap: 2rem;
+  .landing__info{
+    padding: 0;
+    flex-grow: 0;
+    flex-basis: auto;
+    h2{
+      width: 100%;
+      max-width: 400px;
+      font-size: 1.75rem;
+      margin-bottom: .5rem;
+    }
+    p{
+      font-size: 1rem;
+    }
+  }
+  .landing__form{
+    flex-grow: 1;
+  }
+}
+/* Los diseños moviles quedaran pendientes, solo queria aportar valor rapidamente con unas cuentas cositas que me parecieron pueden mejorar. */

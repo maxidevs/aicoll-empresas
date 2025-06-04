@@ -10,7 +10,7 @@
 
 <body>
   @include('partials.header')
-  <section id="aicollFeaturedWithGSAP">
+  <section id="aicollFeaturedWithGSAP" class="hero-section">
     <h2 class="aicoll-footer-seo">CRM Financiero & Hub Tecnológico</h2>
     <!-- --------------------------- featured left ---------------------- -->
     <div class="landing__home__heading__container">
@@ -60,7 +60,7 @@
     <div class="landing__counter__container">
       <div class="landing__counter__item">
         <div class="landing__counter__item--number">
-          +
+          <span class="plus-icon">+</span>
           <div class="numberCounter" data-target="20">0
           </div>
         </div>
@@ -68,7 +68,7 @@
       </div>
       <div class="landing__counter__item">
         <div class="landing__counter__item--number">
-          +
+          <span class="plus-icon">+</span>
           <div class="numberCounter" data-target="2">0
           </div>M
         </div>
@@ -76,7 +76,7 @@
       </div>
       <div class="landing__counter__item">
         <div class="landing__counter__item--number">
-          +
+          <span class="plus-icon">+</span>
           <div class="numberCounter" data-target="500">0
           </div>K
         </div>
@@ -85,7 +85,7 @@
       </div>
       <div class="landing__counter__item">
         <div class="landing__counter__item--number">
-          +
+          <span class="plus-icon">+</span>
           <div class="numberCounter" data-target="30">0
           </div>%
         </div>
@@ -135,7 +135,7 @@
           </div>
           <div class="landing__feature__container">
             <div class="landing__feature__logo">
-              <img height="70" src="https://www.aicoll.co/landingpage/assets/img/feature_strategy.png"
+              <img width="70" src="https://www.aicoll.co/landingpage/assets/img/feature_strategy.png"
                 alt="Toma decisiones estratégicas" id="aicollDownFirst" />
             </div>
             <div class="landing__feature__title">
@@ -188,7 +188,7 @@
           </div>
           <div class="landing__feature__container">
             <div class="landing__feature__logo">
-              <img height="70" src="https://www.aicoll.co/landingpage/assets/img/feature_efecty.png"
+              <img width="70" src="https://www.aicoll.co/landingpage/assets/img/feature_efecty.png"
                 alt="Cobro efectivo" id="aicollDownFirst" />
             </div>
             <div class="landing__feature__title">
@@ -213,7 +213,7 @@
       </button>
     </div>
   </section>
-  <section id="aicollFeaturedWithGSAP">
+  <section id="aicollFeaturedWithGSAP" class="clients-section">
     <!-- --------------------------- featured left ---------------------- -->
     <div class="landing__subtitle">
       Algunos de nuestros clientes<br>
@@ -255,7 +255,7 @@
       </div>
     </div>
   </section>
-  <section id="aicollFeaturedWithGSAP">
+  <section id="aicollFeaturedWithGSAP" class="how-section">
     <!-- --------------------------- featured left ---------------------- -->
     <div class="landing__ally__container">
       ¿Cómo lo hacen hoy las entidades?
@@ -263,7 +263,7 @@
     <div class="landing__ally__container__img">
       <img data-aos="fade-left" data-aos-duration="1500" data-aos-offset="-100" width="70%" loading="lazy"
         src="https://www.aicoll.co/landingpage/assets/img/table.png" title="Integraciones Aicoll"
-        alt="Integraciones Aicoll" id="aicollDownFirst" />
+        alt="Integraciones Aicoll" id="aicollDownFirst" class="mx-auto" />
     </div>
     <div class="landing__carrusel__container">
       <div class="landing__carrusel">
@@ -341,8 +341,9 @@
     <div class="landing__subtitle">
       Nuestros Aliados
     </div>
-    <div class="landing__client__container"
-      style="margin: 0px 0px !important; position: relative !important; background-color: transparent !important;">
+  </section>
+  <div class="landing__client__container landing__client__container__white"
+      style="margin: 0px 0px !important; position: relative !important; background-color: transparent !important; margin-bottom: 3rem !important;">
       <div class="logos__scroll">
         <img src="https://www.aicoll.co/landingpage/assets/img/logo_meta.png" alt="Meta">
         <img src="https://www.aicoll.co/landingpage/assets/img/logo_aws.png" alt="AWS">
@@ -366,10 +367,9 @@
         <img src="https://www.aicoll.co/landingpage/assets/img/logo_oncredit.png" alt="OnCredit">
       </div>
     </div>
-  </section>
   <section id="aicollFeaturedWithGSAP">
     <!-- --------------------------- featured left ---------------------- -->
-    <div class="landing__container__information" style="margin-top: -40px;">
+    <div class="landing__container__information purple-contact">
       <div class="landing__container__information__title">
         Optimiza tus procesos de crédito y cartera con Aicoll. </div>
       <div class="landing__container__information__subtitle">
@@ -384,9 +384,9 @@
   </section>
   <section id="aicollFeaturedWithGSAP">
     <!-- --------------------------- featured left ---------------------- -->
-    <div class="landing__container__contact">
+    <div class="landing__container__contact form_contact">
       <div class="landing__info">
-        <h2 class="font-poppins">Mejora la eficiencia y reduce costos en la <br>gestión de tu cartera con
+        <h2 class="font-poppins">Mejora la eficiencia y reduce costos en la gestión de tu cartera con
           <span>Aicoll</span>
         </h2>
         <p class="font-poppins">Nuestro equipo te ayudará a entender cómo puedes potenciar tu proceso actual de
@@ -425,7 +425,7 @@
     <div class="landing__footer__container">
       <div class="landing__home__heading__panel--left" style="text-align: left !important; width: 70%;">
         <div class="landing__home__heading__sub__container">
-          <img data-aos="fade-left" data-aos-duration="1500" data-aos-offset="-100" loading="lazy" height="100"
+          <img data-aos="fade-left" data-aos-duration="1500" data-aos-offset="-100" loading="lazy" width="100"
             src="https://www.aicoll.co/landingpage/assets/img/aicoll_logo.png" title="Aicoll"
             alt="Suite de Analítica Estrategia y Gestión" id="aicollDownFirst" class="" />
           <div class="landing__home__heading__sub__container__text">
