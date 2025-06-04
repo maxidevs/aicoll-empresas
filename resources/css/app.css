@@ -35,3 +35,10 @@ footer {
   align-items: center;
   justify-content: center;
 }
+.list-group{
+  background-color: transparent;
+}
+.list-group-item{
+  background-color: transparent;
+  border: none;
+}
